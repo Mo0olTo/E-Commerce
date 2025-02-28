@@ -1,0 +1,178 @@
+<section>
+  <div class="flex flex-col md:flex-row md:flex-nowrap flex-wrap mb-10">
+    <div class=" w-full sm:w-12/12 md:w-9/12">
+      <owl-carousel-o [options]="customMainOptions">
+        <ng-template carouselSlide
+          ><img
+            src="/images/img1.avif"
+            class="w-full object-cover h-[300px]"
+            alt=""
+        /></ng-template>
+        <ng-template carouselSlide
+          ><img
+            src="/images/img2.avif"
+            class="w-full object-cover h-[300px]"
+            alt=""
+        /></ng-template>
+        <ng-template carouselSlide
+          ><img
+            src="/images/img3.avif"
+            class="w-full object-cover h-[300px]"
+            alt=""
+        /></ng-template>
+        <ng-template carouselSlide
+          ><img
+            src="/images/img4.avif"
+            class="w-full object-cover h-[300px]"
+            alt=""
+        /></ng-template>
+        <ng-template carouselSlide
+          ><img
+            src="/images/img5.avif"
+            class="w-full object-cover h-[300px]"
+            alt=""
+        /></ng-template>
+      </owl-carousel-o>
+    </div>
+    <div class="w-full sm:w-12/12 sm:self-center md:w-3/12 md:self-end">
+      <img
+        src="/images/grocery-banner-2.jpeg"
+        class="w-full h-[150px]"
+        alt=""
+      />
+      <img src="/images/grocery-banner.png" class="w-full h-[150px] " alt="" />
+    </div>
+  </div>
+</section>
+
+<section class="section__2">
+  <h2
+    class="rounded-2xl text-[20px] font-[600] sm:font-[40px] title bg-[#24B425] px-1 w-1/4 text-center my-5 py-2 block mx-auto text-white header__title"
+  >
+    {{"home.Popular Categories"|translate}}
+  </h2>
+
+  <owl-carousel-o [options]="customOptions" class="">
+    @for (cat of categories; track cat._id) {
+
+    <ng-template carouselSlide>
+      <div>
+        <img
+          [src]="cat.image"
+          class="w-full h-[400px] object-fill rounded-2xl"
+          [alt]="cat.name"
+        />
+        <h3 class="text-green-600 text-center">{{ cat.name }}</h3>
+      </div>
+    </ng-template>
+
+    }
+  </owl-carousel-o>
+</section>
+
+<section>
+  <h2
+    class="rounded-2xl text-[20px] font-[600] sm:font-[40px] title bg-[#24B425] px-1 w-1/4 text-center my-5 py-2 block mx-auto text-white"
+  >
+   {{"home.Top Rated Products" |translate}}
+  </h2>
+
+  <label class="relative block">
+    <span class="sr-only">Search</span>
+    <span class="absolute inset-y-0 left-0 flex items-center pl-2">
+      <svg class="h-5 w-5 fill-slate-300" viewBox="0 0 20 20"><!-- ... --></svg>
+    </span>
+    <input
+      [(ngModel)]="text"
+      class="mb-5 w-1/2 placeholder:italic placeholder:text-slate-400 block bg-white mx-auto border border-slate-300 rounded-md py-2 pl-9 pr-3 shadow-sm focus:outline-none focus:border-green-500 focus:ring-green-500 focus:ring-1 sm:text-sm"
+      placeholder="Search by top rated product..."
+      type="search"
+      name="search"
+    />
+  </label>
+
+  <div class="grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-10">
+    @for (product of products.slice(0,56) | search:text ; track product.id) {
+
+
+
+   @if(product.price > 1500 && product.ratingsAverage > 3.5 ){
+    <div
+    class="card border bg-white border-green-400/50 rounded-md overflow-hidden shadow relative"
+  >
+    <div [routerLink]="['/details', product._id]" class="cursor-pointer">
+      <div class="card-img">
+        <img
+          [src]="product.imageCover"
+          class="w-full h-[250px] object-contain"
+          [alt]="product.title"
+        />
+      </div>
+
+      <div class="card-body px-5 py-4">
+        <h4 class="text-green-500 text-xl">{{ product.category.name }}</h4>
+        <h3 class="font-medium">{{ product.title | term : 4 }}</h3>
+
+        <div class="flex justify-between items-center">
+          <span class="text-green-600"
+            >Price :
+            <span class="text-yellow-500 font-bold">{{ product.price  | currency : 'EGP'}}</span></span
+          >
+          
+          
+          <div class="flex items-center">
+            <i class="fas fa-star text-yellow-300"></i>
+            <span class="text-gray-500">{{ product.ratingsAverage }}</span>
+          </div>
+        </div>
+
+        <div class="mt-2">
+          
+        </div>
+      </div>
+    </div>
+
+    <div class="flex justify-between items-center px-4">
+     
+
+    <button
+      
+    (click)="addToCart(product.id)"
+
+      class="bg-green-600 text-white border rounded-lg p-2 w-2/4 "
+    >
+    {{"shopcart.add to cart" |translate}}
+    @if (isLoading) {
+      
+      <span><i class="fas fa-spin fa-spinner"></i></span>
+    }
+      
+    </button> 
+
+
+    <button 
+    (click)="addToWishlist(product.id)" 
+    (click)="toogleWishlisted()"
+   
+    [class] = "{'text-red-600': isWishlisted, 'text-black': !isWishlisted}"
+    class=" border rounded-lg p-2 w-1/8" ><i class="fas fa-heart "></i>
+    @if(isAdded){
+      <span><i class="fas fa-spin fa-spinner"></i></span>
+    }
+    @if(isWishlisted){
+
+    }
+  </button>
+    </div>
+
+   
+  </div>
+   }
+  
+
+    }
+  </div>
+</section>
+
+
+

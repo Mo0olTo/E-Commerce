@@ -1,0 +1,57 @@
+<section class="w-3/4 bg-gray-100 border border-gray-400 rounded-md shadow p-4 mx-auto my-4">
+
+    <h1 class=" rounded-2xl text-[14px] font-[600] sm:font-[40px] title bg-[#24B425] px-1 w-1/4 text-center my-5 py-2 block mx-auto text-white mb-6">My Orders</h1>
+
+
+    @for (order of allOrders ; track $index) {}
+
+       
+
+<div class="relative overflow-x-auto shadow-md sm:rounded-lg">
+    <table class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
+        <thead class="text-xs text-gray-700 uppercase dark:text-gray-400">
+            <tr>
+                <th scope="col" class="px-6 py-3 bg-gray-50 dark:bg-gray-800">
+                    Shipping Adress
+                </th>
+                <th scope="col" class="px-6 py-3">
+                     cart items
+                </th>
+                <th scope="col" class="px-6 py-3 bg-gray-50 dark:bg-gray-800">
+                    Total Order Price
+                </th>
+                <th scope="col" class="px-6 py-3">
+                    Payment Method Type
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            @for (order of allOrders; track $index) {
+
+                <tr class="border-b border-gray-200 dark:border-gray-700">
+                    <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap bg-gray-50 dark:text-white dark:bg-gray-800">
+                        {{order.shippingAddress.city }} {{order.shippingAddress.details}}
+                    </th>
+                    <td class="px-6 py-4">
+                        {{order.cartItems.length}}
+                    </td>
+                    <td class="px-6 py-4 bg-gray-50 dark:bg-gray-800">
+                        {{order.totalOrderPrice | currency : "EGP"}}
+                    </td>
+                    <td class="px-6 py-4">
+                        {{order.paymentMethodType}}
+                    </td>
+                   
+                </tr>
+
+            }
+      
+
+        </tbody>
+    </table>
+</div>
+
+
+    
+
+</section>

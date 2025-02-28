@@ -1,0 +1,148 @@
+<Section  class="w-2/3 bg-gray-100 border border-gray-400 rounded-md shadow p-4 mx-auto my-4">
+    <h1 class="text-2xl text-start text-green-500 font-medium mb-5 ml-2">{{"checkout.checkout" | translate}}</h1>
+
+
+
+    <form [formGroup]="checkoutForm"  (ngSubmit)="submitForm()">
+        <div class="mb-5 pl-4">
+            <label
+              for="details"
+              class="block mb-2 text-sm font-medium text-green-600 dark:text-white ml-3"
+              >{{"checkout.Adress Details" |translate }}</label
+            >
+            <input
+              formControlName="details"
+              type="text "
+              id="details"
+              class="bg-white border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-green-500 dark:focus:border-green-500"
+            />
+            @if (checkoutForm.get('details')?.errors && checkoutForm.get('details')?.touched)
+            {
+            <div
+              class="flex p-4 mb-4 text-sm text-red-800 rounded-lg bg-red-50 dark:bg-gray-800 dark:text-red-400"
+              role="alert"
+            >
+              <svg
+                class="shrink-0 inline w-4 h-4 me-3 mt-[2px]"
+                aria-hidden="true"
+                xmlns="http://www.w3.org/2000/svg"
+                fill="currentColor"
+                viewBox="0 0 20 20"
+              >
+                <path
+                  d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5ZM9.5 4a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3ZM12 15H8a1 1 0 0 1 0-2h1v-3H8a1 1 0 0 1 0-2h2a1 1 0 0 1 1 1v4h1a1 1 0 0 1 0 2Z"
+                />
+              </svg>
+              <div>
+                <span class="font-medium"
+                  >Ensure that these requirements are met:</span>
+
+                <ul class="mt-1.5 list-disc list-inside">
+                  @if (checkoutForm.get('details')?.getError('required')) {
+                  <li>Adress Details is Required</li>
+                  }
+                </ul>
+              </div>
+            </div>
+    
+            }
+          </div>
+        <div class="mb-5 pl-4">
+            <label
+              for="phone"
+              class="block mb-2 text-sm font-medium text-green-600 dark:text-white ml-3"
+              >{{"checkout.Phone" |translate}}</label
+            >
+            <input
+              formControlName="phone"
+              type="tel"
+              id="phone"
+              class="bg-white border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-green-500 dark:focus:border-green-500"
+            />
+            @if (checkoutForm.get('phone')?.errors && checkoutForm.get('phone')?.touched)
+            {
+            <div
+              class="flex p-4 mb-4 text-sm text-red-800 rounded-lg bg-red-50 dark:bg-gray-800 dark:text-red-400"
+              role="alert"
+            >
+              <svg
+                class="shrink-0 inline w-4 h-4 me-3 mt-[2px]"
+                aria-hidden="true"
+                xmlns="http://www.w3.org/2000/svg"
+                fill="currentColor"
+                viewBox="0 0 20 20"
+              >
+                <path
+                  d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5ZM9.5 4a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3ZM12 15H8a1 1 0 0 1 0-2h1v-3H8a1 1 0 0 1 0-2h2a1 1 0 0 1 1 1v4h1a1 1 0 0 1 0 2Z"
+                />
+              </svg>
+              <div>
+                <span class="font-medium"
+                  >Ensure that these requirements are met:</span>
+
+                <ul class="mt-1.5 list-disc list-inside">
+                  @if (checkoutForm.get('phone')?.getError('required')) {
+                  <li>phone is Required</li>
+                  } @else if (checkoutForm.get('phone')?.getError('pattern')) {
+                    <li>Egy mobile number is must</li>
+                  }
+                </ul>
+              </div>
+            </div>
+    
+            }
+          </div>
+        <div class="mb-5 pl-4">
+            <label
+              for="city"
+              class="block mb-2 text-sm font-medium text-green-600 dark:text-white ml-3"
+              >{{"checkout.City" | translate}}</label
+            >
+            <input
+              formControlName="city"
+              type="tel"
+              id="city"
+              class="bg-white border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-green-500 dark:focus:border-green-500"
+            />
+            @if (checkoutForm.get('city')?.errors && checkoutForm.get('city')?.touched)
+            {
+            <div
+              class="flex p-4 mb-4 text-sm text-red-800 rounded-lg bg-red-50 dark:bg-gray-800 dark:text-red-400"
+              role="alert"
+            >
+              <svg
+                class="shrink-0 inline w-4 h-4 me-3 mt-[2px]"
+                aria-hidden="true"
+                xmlns="http://www.w3.org/2000/svg"
+                fill="currentColor"
+                viewBox="0 0 20 20"
+              >
+                <path
+                  d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5ZM9.5 4a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3ZM12 15H8a1 1 0 0 1 0-2h1v-3H8a1 1 0 0 1 0-2h2a1 1 0 0 1 1 1v4h1a1 1 0 0 1 0 2Z"
+                />
+              </svg>
+              <div>
+                <span class="font-medium"
+                  >Ensure that these requirements are met:</span>
+
+                <ul class="mt-1.5 list-disc list-inside">
+                  @if (checkoutForm.get('city')?.getError('required')) {
+                  <li>city is Required</li>
+                  } 
+                </ul>
+              </div>
+            </div>
+    
+            }
+          </div>
+
+          <button [disabled]="checkoutForm.invalid" class="btn-main" type="submit">
+            {{"checkout.Online Checkout"|translate}}
+            @if (isLoading) {
+                <i class="fas fa-spin fa-spinner"></i>
+            }
+        </button>
+
+
+    </form>
+</Section>

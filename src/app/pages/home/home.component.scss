@@ -1,0 +1,52 @@
+.card{
+    button{
+        transform: translateY(100%);
+        transition: all 0.5s;
+        opacity: 0;
+    }
+
+    &:hover {
+        button{
+            transform: translateY(0);
+            opacity: 1;
+        }
+
+
+
+    }
+}
+
+
+// .section__2{
+    
+
+        
+      
+
+//         .header__title::before {
+//             content: 'asds';
+//             height: 5px;
+//             width: 120px;
+//             background-color: #FF305B;
+//             position: absolute;
+//             left: 38%;
+//             margin-top: 15px;
+            
+            
+
+//         }
+//         .header__title::after {
+//             content: 'asds';
+//             height: 5px;
+//             width: 120px;
+//             background-color: #FF305B;
+//             position: absolute;
+//             right: 35%;
+//             margin-top: 15px;
+            
+           
+
+//         }
+
+    
+// }

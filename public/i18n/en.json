@@ -1,0 +1,60 @@
+{   
+
+    "navbar":{
+        "home" : "Home" , 
+        "Fresh Cart" : "Fresh Cart" , 
+    "products" : "Products",    
+    "brands" : "Brands", 
+    "categories" : "Categories"  ,
+    "login"  :"Login" , 
+    "logout" : "logout",
+    "register" : "Register",
+    "lang" : "Lang"
+    
+
+    },"login" :{
+        "register now" : "Register Now" ,
+        "signup" : "Sign Up" ,
+        "email" : "Email" , 
+        "name" : "Name" , 
+        "password" : "Password" , 
+        "rePassword" : "RePassword" ,
+        "phone" : "Phone",
+        "forget password" : "Forget Password",
+        "Didn't have Acount" : "Didn't have Acount",
+        "login"  :"Login" 
+    } , 
+           "footer":{
+        "email" : "Email" ,
+        "share app link" : "Share App Link",
+        "Payment partners" : "Payment partners",
+        "We Will Send You a Link, Open it on Your Phone to download the app" : "We Will Send You a Link, Open it on Your Phone to download the app"
+        
+    } , "home":{
+
+        "Popular Categories" : "Popular Categories",
+        "Top Rated Products" : "Top Rated Products"
+        
+    },
+    "shopcart":{
+        "Shop cart" : "Shop cart",
+        "Total cart price" : "Total cart price",
+        "Empty cart" : "Empty cart",
+        "Checkout" : "Checkout",
+        "price" : "price",
+        "remove item" : "remove item",
+        "add to cart" : "Add to cart"
+
+    } , "checkout":{
+        "checkout" : "checkout",
+        "Adress Details" : "Adress Details",
+        "Phone" : "Phone",
+        "City" : "City",
+        "Online Checkout" : "Online Checkout"
+    }
+    
+   
+     
+}
+
+

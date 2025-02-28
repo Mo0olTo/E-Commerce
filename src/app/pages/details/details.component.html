@@ -1,0 +1,201 @@
+@if (detailsProduct) {
+
+    <h1 class=" rounded-2xl text-[20px] font-[600] sm:font-[40px] title bg-[#24B425] px-1 w-1/4 text-center my-5 py-2 block mx-auto text-white mb-6">Product Deatils</h1>
+
+    <section class="w-3/4 bg-gray-100 border border-gray-400 rounded-md shadow p-4 mx-auto my-4">
+       
+        <div class="sm:flex justify-center items-center">
+    
+            <div class="sm:w-1/4">
+        
+                <!-- <img [src]="detailsProduct.imageCover" class="w-full" [alt]="detailsProduct.title"> -->
+
+
+
+
+                <owl-carousel-o [options]="imageOptions" class="">
+
+
+
+        
+                    @for (img of detailsProduct.images; track $index) {
+                          
+                              <ng-template carouselSlide >
+                               <div >
+                                <img [src]="img" class="sm:w-full  sm:h-[200px] md:h-[400px]  rounded-3xl" [alt]="detailsProduct.title">
+                                
+                               </div>
+                              </ng-template>
+                           
+                        
+                         
+                        
+                    }
+                    
+                
+                  </owl-carousel-o>
+            </div>
+    
+            <div class="w-2/4 container">
+    
+                <div class=" flex flex-col justify-start items-center gap-2 mb-5">
+                    <h2 class="text-2xl font-[500] m-3 text-green-600 text-center">{{detailsProduct.title}}</h2>
+                    <p class="text-gray-600 text-center text-xl w-1/2">{{detailsProduct.description}}</p>
+        
+                   
+                </div>
+                <div class=" sm:flex sm:justify-between sm:items-center mt-3">
+                    <p ><span class="text-green-600">Category :</span> {{detailsProduct.category.name}}</p>
+                <span > <span class="text-green-600">Quantity :</span> {{detailsProduct.quantity}}</span>
+                </div>
+    
+                <div class="flex justify-between items-center mt-3">
+                    <span class="text-green-600 ">Price : <span class="text-yellow-500">{{detailsProduct.price}} LE</span></span>
+                
+                    
+    
+                    <div class="flex items-center">
+                        <i class="fas fa-star text-yellow-300"></i>
+                        <span class="text-gray-500">{{detailsProduct.ratingsAverage}}</span>
+                        
+                      </div>
+                  </div>
+    
+                  <button (click)="addToCart(detailsProduct.id)" class="bg-green-600 text-white border rounded-lg p-2 w-full sm:w-9/12 block mx-auto mt-5">
+                    Add to Cart
+                    @if (isLoading) {
+                        <i class="fas fa-spin fa-spinner"></i>
+                    }
+                </button>
+            </div>
+    
+    
+    
+    
+        </div>
+    </section>
+}
+
+
+@else if(detailsBrands){
+
+    <h1 class=" rounded-2xl text-[20px] font-[600] sm:font-[40px] title bg-[#24B425] px-1 w-1/4 text-center my-5 py-2 block mx-auto text-white mb-6">Brand Deatils</h1>
+
+    <section class="w-3/4 bg-gray-100 border border-gray-400 rounded-md shadow p-4 mx-auto my-4">
+       
+        <div class="sm:flex justify-center items-center">
+    
+            <div class="sm:w-1/4">
+        
+                <!-- <img [src]="detailsProduct.imageCover" class="w-full" [alt]="detailsProduct.title"> -->
+
+
+
+
+                <owl-carousel-o [options]="imageOptions" class="">
+
+
+
+        
+                    @for (img of detailsBrands.image; track $index) {
+                          
+                              <ng-template carouselSlide >
+                               <div >
+                                <img [src]="detailsBrands.image" class="sm:w-full  sm:h-[200px] md:h-[400px]  rounded-3xl" [alt]="detailsBrands.name">
+                                
+                               </div>
+                              </ng-template>
+                           
+                        
+                         
+                        
+                    }
+                    
+                
+                  </owl-carousel-o>
+            </div>
+    
+            <div class="w-2/4 container">
+    
+                <div class=" flex flex-col justify-start items-center gap-2 mb-5">
+                    <h2 class="text-2xl font-[500] m-3 text-green-600 text-center">{{detailsBrands.name}}</h2>
+                    
+        
+                   
+                </div>
+             
+    
+             
+    
+            </div>
+    
+    
+    
+    
+        </div>
+    </section>
+
+
+}
+
+
+
+
+@if(detailsCategories){
+    <h1 class=" rounded-2xl text-[20px] font-[600] sm:font-[40px] title bg-[#24B425] px-1 w-1/4 text-center my-5 py-2 block mx-auto text-white mb-6">Category Deatils</h1>
+
+    <section class="w-3/4 bg-gray-100 border border-gray-400 rounded-md shadow p-4 mx-auto my-4">
+       
+        <div class="sm:flex justify-center items-center">
+    
+            <div class="sm:w-1/4">
+        
+                <!-- <img [src]="detailsProduct.imageCover" class="w-full" [alt]="detailsProduct.title"> -->
+
+
+
+
+                <owl-carousel-o [options]="imageOptions" class="">
+
+
+
+        
+                    @for (cat of detailsCategories.image; track $index) {
+                          
+                              <ng-template carouselSlide >
+                               <div >
+                                <img [src]="cat" class="sm:w-full  sm:h-[200px] md:h-[400px]  rounded-3xl" [alt]="detailsCategories.name">
+                                
+                               </div>
+                              </ng-template>
+                           
+                        
+                         
+                        
+                    }
+                    
+                
+                  </owl-carousel-o>
+            </div>
+    
+            <div class="w-2/4 container">
+    
+                <div class=" flex flex-col justify-start items-center gap-2 mb-5">
+                    <h2 class="text-2xl font-[500] m-3 text-green-600 text-center">{{detailsCategories.name}}</h2>
+                    
+        
+                   
+                </div>
+             
+    
+             
+    
+            </div>
+    
+    
+    
+    
+        </div>
+    </section>
+
+}

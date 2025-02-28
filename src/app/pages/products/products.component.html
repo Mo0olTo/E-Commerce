@@ -1,0 +1,66 @@
+<section>
+    <h2
+      class="rounded-2xl text-[20px] font-[600] sm:font-[40px] title bg-[#24B425] px-1 w-1/4 text-center my-5 py-2 block mx-auto text-white"
+    >
+       {{"navbar.products" | translate}}
+    </h2>
+  
+    <label class="relative block">
+      <span class="sr-only">Search</span>
+      <span class="absolute inset-y-0 left-0 flex items-center pl-2">
+        <svg class="h-5 w-5 fill-slate-300" viewBox="0 0 20 20"><!-- ... --></svg>
+      </span>
+      <input
+        [(ngModel)]="text"
+        class="mb-5 w-1/2 placeholder:italic placeholder:text-slate-400 block bg-white mx-auto border border-slate-300 rounded-md py-2 pl-9 pr-3 shadow-sm focus:outline-none focus:border-green-500 focus:ring-green-500 focus:ring-1 sm:text-sm"
+        placeholder="Search by top rated product..."
+        type="search"
+        name="search"
+      />
+    </label>
+  
+    <div class="grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-10 px-4">
+      @for (product of products | search:text ; track product.id) {
+  
+        <div
+        class="card bg-white border border-green-400/50 rounded-md overflow-hidden shadow relative"
+      >
+        <div [routerLink]="['/details', product._id]" class="cursor-pointer">
+          <div class="card-img">
+            <img
+              [src]="product.imageCover"
+              class="w-full h-[250px] object-contain"
+              [alt]="product.title"
+            />
+          </div>
+    
+          <div class="card-body px-5 py-4">
+            <h4 class="text-green-500 text-xl">{{ product.category.name }}</h4>
+            <h3 class="font-medium">{{ product.title | term : 4 }}</h3>
+    
+            <div class="flex justify-between items-center">
+              <span class="text-green-600"
+                >Price :
+                <span class="text-yellow-500 font-bold">{{ product.price  | currency : 'EGP'}}</span></span
+              >
+              <div class="flex items-center">
+                <i class="fas fa-star text-yellow-300"></i>
+                <span class="text-gray-500">{{ product.ratingsAverage }}</span>
+              </div>
+            </div>
+          </div>
+        </div>
+    
+    
+    
+       
+      </div>
+  
+  
+    
+  
+      }
+    </div>
+
+  
+  </section>

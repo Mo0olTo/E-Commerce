@@ -1,0 +1,38 @@
+<app-navbar [isLogin]="true" ></app-navbar>
+
+<div class="bg-app ">
+    <div class="container py-10">
+        <router-outlet></router-outlet>     
+    </div>
+
+</div>
+
+<button (click)="toWishlist()"
+  title="Wish List"
+ class=" mt-2 z-20 hover:scale-[1.4] transform duration-[.8s]   hover:text-red-600  rounded-full w-[30px] h-[30px] sm:w-[50px] sm:h-[50px] right-[20px] top-[60px]  sm:right-[60px] sm:top-[60px] fixed">
+ <i class="fas fa-heart  text-2xl "></i></button>
+
+
+
+<button (click)="toCart()"
+  title="Your Cart"
+ class=" mt-2 z-20  hover:scale-[1.4] transform duration-[.8s]  hover:text-green-600  rounded-full w-[30px] h-[30px] sm:w-[50px] sm:h-[50px] right-[20px] top-[100px]  sm:right-[120px] sm:top-[60px] fixed">
+ <i class="fas fa-cart-shopping  text-2xl"></i></button>
+
+
+
+
+<button
+  #goUpBtn
+  class=""
+  title="Go up"
+  [class]=" onScroll()"
+  (click)="goUp()"
+>
+@if(isButtonVisible){
+  <i class="fa-solid fa-arrow-up flex flex-col justify-center mt-2 z-20 text-white transition-all  hover:scale-[1.5] transform duration-[.8s] bg-green-600 hover:bg-white  hover:text-green-600  rounded-full w-[35px] h-[35px] sm:w-[50px] sm:h-[50px] right-[20px] bottom-[100px]  sm:right-[60px] sm:bottom-[60px] fixed rounded-circle text-xl"></i>
+}
+  
+</button>
+<app-footer class="z-10"></app-footer>
+ 

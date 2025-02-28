@@ -1,0 +1,156 @@
+<section
+  class="w-2/3 bg-gray-100 border border-gray-400 rounded-md shadow p-4 mx-auto my-4"
+>
+  <div>
+    <h1 class="text-2xl text-start text-green-500 font-medium mb-5 ml-2">
+      {{"navbar.login" |translate}}
+    </h1>
+
+    <form [formGroup]="logInForm" (ngSubmit)="submitForm()">
+      <div class="mb-5 pl-4">
+        <label
+          for="email"
+          class="block mb-2 text-sm font-medium text-green-600 dark:text-white ml-3"
+          >{{"login.email" |translate }}</label
+        >
+        <input
+          formControlName="email"
+          type="email"
+          id="email"
+          class="bg-white border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-green-500 dark:focus:border-green-500"
+        />
+        @if (logInForm.get('email')?.errors && logInForm.get('email')?.touched)
+        {
+        <div
+          class="flex p-4 mb-4 text-sm text-red-800 rounded-lg bg-red-50 dark:bg-gray-800 dark:text-red-400"
+          role="alert"
+        >
+          <svg
+            class="shrink-0 inline w-4 h-4 me-3 mt-[2px]"
+            aria-hidden="true"
+            xmlns="http://www.w3.org/2000/svg"
+            fill="currentColor"
+            viewBox="0 0 20 20"
+          >
+            <path
+              d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5ZM9.5 4a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3ZM12 15H8a1 1 0 0 1 0-2h1v-3H8a1 1 0 0 1 0-2h2a1 1 0 0 1 1 1v4h1a1 1 0 0 1 0 2Z"
+            />
+          </svg>
+          <div>
+            <span class="font-medium"
+              >Ensure that these requirements are met:</span
+            >
+            <ul class="mt-1.5 list-disc list-inside">
+              @if (logInForm.get('email')?.getError('required')) {
+              <li>Email is Required</li>
+              }@else if (logInForm.get('email')?.getError('email')) {
+              <li>must use a valid mail</li>
+              }
+            </ul>
+          </div>
+        </div>
+
+        }
+      </div>
+      <div class="mb-5 pl-4">
+        <label
+          for="password"
+          class="block mb-2 text-sm font-medium text-green-600 dark:text-white ml-3"
+          >{{"login.password" |translate }}</label
+        >
+        <input
+          formControlName="password"
+          type="password"
+          id="password"
+          class="bg-white border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-green-500 dark:focus:border-green-500"
+        />
+        @if (logInForm.get('password')?.errors &&
+        logInForm.get('password')?.touched) {
+        <div
+          class="flex p-4 mb-4 text-sm text-red-800 rounded-lg bg-red-50 dark:bg-gray-800 dark:text-red-400"
+          role="alert"
+        >
+          <svg
+            class="shrink-0 inline w-4 h-4 me-3 mt-[2px]"
+            aria-hidden="true"
+            xmlns="http://www.w3.org/2000/svg"
+            fill="currentColor"
+            viewBox="0 0 20 20"
+          >
+            <path
+              d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5ZM9.5 4a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3ZM12 15H8a1 1 0 0 1 0-2h1v-3H8a1 1 0 0 1 0-2h2a1 1 0 0 1 1 1v4h1a1 1 0 0 1 0 2Z"
+            />
+          </svg>
+          <div>
+            <span class="font-medium"
+              >Ensure that these requirements are met:</span
+            >
+            <ul class="mt-1.5 list-disc list-inside">
+              @if (logInForm.get('password')?.getError('required')) {
+              <li>password is Required</li>
+              }@else if (logInForm.get('password')?.getError('pattern')) {
+              <li>
+                password must start with Capital char & at least 8 char up to 20
+                char
+              </li>
+              }
+            </ul>
+          </div>
+        </div>
+
+        }
+      </div>
+
+     <div class=" flex flex-col justify-between md:flex-row   ">
+          
+            <button [disabled]="isLoading" type="submit" class="btn-main ">
+             {{"navbar.login" | translate}} @if(isLoading){
+              <span><i class="fas fa-spin fa-spinner"></i></span>
+              }
+            </button>
+
+           
+
+            @if (msgError) {
+            <div
+              id="toast-danger"
+              class="flex items-center justify-center w-full max-w-xs p-4 mb-4 text-gray-500 bg-red-300 rounded-lg shadow-sm dark:text-gray-400 dark:bg-gray-800"
+              role="alert"
+            >
+              <div
+                class="inline-flex items-center justify-center shrink-0 w-8 h-8 text-red-500 bg-red-100 rounded-lg dark:bg-red-800 dark:text-red-200"
+              >
+                <svg
+                  class="w-5 h-5"
+                  aria-hidden="true"
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="currentColor"
+                  viewBox="0 0 20 20"
+                >
+                  <path
+                    d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5Zm3.707 11.793a1 1 0 1 1-1.414 1.414L10 11.414l-2.293 2.293a1 1 0 0 1-1.414-1.414L8.586 10 6.293 7.707a1 1 0 0 1 1.414-1.414L10 8.586l2.293-2.293a1 1 0 0 1 1.414 1.414L11.414 10l2.293 2.293Z"
+                  />
+                </svg>
+                <span class="sr-only">Error icon</span>
+              </div>
+              <div class="ms-3 text-lg font-normal">{{ msgError }}</div>
+            </div>
+            }
+
+          
+
+
+
+     
+     </div>
+
+     <div class="mt-2  flex flex-col sm:flex-row sm:justify-between">
+      <a class="hover:bg-gray-300 hover:rounded-lg hover:text-green-700 text-center text-xl ml-4 underline px-3 py-2 hover:cursor-pointer " routerLink="/forgot"> {{"login.forget password" |translate }}</a>
+      <a
+      class="hover:bg-gray-300 hover:rounded-lg hover:text-green-700 text-center text-xl ml-4 px-2 py-2 underline  hover:cursor-pointer  "
+      (click)="registerBtn()"
+      >{{"login.Didn't have Acount" |translate }}</a>
+    </div>
+    </form>
+  </div>
+</section>

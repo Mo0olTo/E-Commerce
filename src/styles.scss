@@ -1,1 +1,17 @@
 /* You can add global styles to this file, and also import other style files */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+@import 'ngx-owl-carousel-o/lib/styles/scss/owl.carousel';
+@import 'ngx-owl-carousel-o/lib/styles/scss/owl.theme.default';
+
+.btn-main{
+    @apply bg-[#24B425] text-white px-12 py-2 border rounded-lg ml-4 hover:bg-green-600 transition-colors duration-500 font-medium;
+}
+.btn-remove{
+    @apply bg-[#e35447] text-white px-12 py-2 border rounded-lg ml-4 hover:bg-[#c75349] transition-colors duration-500 font-medium;
+}
+
+
