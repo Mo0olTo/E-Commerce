@@ -1,4 +1,5 @@
-import { AllordersComponent } from './pages/allorders/allorders/allorders.component';
+
+
 import { Routes } from '@angular/router';
 import { AuthLayoutComponent } from './layouts/auth-layout/auth-layout.component';
 import { BlankLayoutComponent } from './layouts/blank-layout/blank-layout.component';
@@ -8,6 +9,7 @@ import { RegisterComponent } from './pages/register/register.component';
 import { authGuard } from './core/guards/auth.guard';
 import { loggedGuard } from './core/guards/logged.guard';
 import { ForgotpasswordComponent } from './pages/forgotpassword/forgotpassword.component';
+
 
 export const routes: Routes = [
     {path:'', redirectTo:'home' , pathMatch:"full"} ,
@@ -24,9 +26,9 @@ export const routes: Routes = [
         {path:'brands' , loadComponent:()=>import('./pages/brands/brands.component').then((c)=>c.BrandsComponent) , title:'Brands'},
         {path:'allorders' , loadComponent:()=>import('./pages/allorders/allorders/allorders.component').then((c)=>c.AllordersComponent) , title:'All Orders'},
         {path:'categories' , loadComponent:()=>import('./pages/categories/categories.component').then((c)=>c.CategoriesComponent), title:'Categories'},
-        {path:'checkout/:id' , loadComponent:()=>import('./pages/checkout/checkout.component').then((c)=>c.CheckoutComponent) , title:'Checkout'},
+        {path:'checkout/:id' , loadComponent:()=>import('./pages/checkout/checkout.component').then((c)=>c.CheckoutComponent) , title:'Checkout' , data: { renderMode: 'no-prerender' }},
         {path:'wishlist' , loadComponent:()=>import('./pages/wishlist/wishlist.component').then((c)=>c.WishlistComponent) , title:'Wishlist'},
-        {path:'details/:id' , loadComponent:()=>import('./pages/details/details.component').then((c)=>c.DetailsComponent) , title:'Details'},
+        {path:'details/:id' , loadComponent:()=>import('./pages/details/details.component').then((c)=>c.DetailsComponent) , title:'Details' , data: { renderMode: 'no-prerender' }},
         {path:'**', component:NotfoundComponent}
     ]},
     

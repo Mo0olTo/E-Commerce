@@ -1,0 +1,55 @@
+{
+    "navbar": {
+        "home": "الرئيسية",
+        "Fresh Cart": "فريش كارت",
+        "products": "المنتجات",
+        "brands": "العلامات التجارية",
+        "categories": "الفئات",
+        "login": "تسجيل الدخول",
+        "logout": "تسجيل الخروج",
+        "register": "التسجيل",
+        "lang": "اللغة"
+    },
+    "login": {
+        "register now": "سجل الآن",
+        "signup": "إنشاء حساب",
+        "email": "البريد الإلكتروني",
+        "password": "كلمة المرور",
+        "rePassword": "إعادة كلمة المرور",
+        "name" : "الإسم" ,
+        "phone": "الهاتف",
+        "forget password": "نسيت كلمة المرور",
+        "Didn't have Acount": "ليس لديك حساب",
+        "login": "تسجيل الدخول"
+    },
+    "footer": {
+        "email": "البريد الإلكتروني",
+        "share app link": "مشاركة رابط التطبيق",
+        "Payment partners": "شركاء الدفع" ,
+ 
+         "We Will Send You a Link, Open it on Your Phone to download the app": "سنرسل لك رابطًا، افتحه على هاتفك لتنزيل التطبيق"
+
+    } ,
+                "home": {
+                    "Popular Categories": "الفئات الشائعة",
+                    "Top Rated Products": "أعلى المنتجات تقييمًا"
+                },
+
+            "shopcart": {
+                "Shop cart": "عربة التسوق",
+                "Total cart price": "إجمالي سعر العربة",
+                "Empty cart": "تفريغ العربة",
+                "Checkout": "الدفع",
+                "price": "السعر",
+                "remove item": "إزالة العنصر",
+                "add to cart" : "أضف الي العربة"
+                }, 
+
+                    "checkout": {
+                        "checkout": "الدفع",
+                        "Adress Details": "تفاصيل العنوان",
+                        "Phone": "الهاتف",
+                        "City": "المدينة",
+                        "Online Checkout": "الدفع عبر الإنترنت"
+                    }
+}
