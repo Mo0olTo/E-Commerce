@@ -1,5 +1,5 @@
 import { ApplicationConfig, importProvidersFrom, provideZoneChangeDetection } from '@angular/core';
-import { provideRouter } from '@angular/router';
+import { provideRouter, withHashLocation } from '@angular/router';
 import { NgxSpinnerModule } from "ngx-spinner";
 
 import { routes } from './app.routes';
@@ -17,7 +17,7 @@ export function HttpLoaderFactory(http: HttpClient) {
 }
 
 export const appConfig: ApplicationConfig = {
-  providers: [provideZoneChangeDetection({ eventCoalescing: true }), provideRouter(routes),
+  providers: [provideZoneChangeDetection({ eventCoalescing: true }), provideRouter(routes , withHashLocation()),
      provideClientHydration(withEventReplay()),
     provideHttpClient(withFetch(), withInterceptors([headersInterceptor,errorsInterceptor])),
     provideAnimations(),
