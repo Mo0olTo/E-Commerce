@@ -23,6 +23,7 @@ export class NavbarComponent implements OnInit {
  
 
   isLogin=input<Boolean>(true)
+  isNavbarOpen = false;
 
 
   cartCount:Signal<number> = computed( ()=> this.cartService.cartNumber() )
@@ -65,6 +66,13 @@ export class NavbarComponent implements OnInit {
 
           changedDir(lang:string):boolean{
             return this.translateService.currentLang === lang
+          }
+
+
+          
+
+          toggleNavbar() {
+            this.isNavbarOpen = !this.isNavbarOpen;
           }
 
 
