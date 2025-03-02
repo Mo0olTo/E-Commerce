@@ -11,16 +11,21 @@
       </div>
 
 
-        <div class="self-center sm:self-end">
-            <button 
-            (click)="emptyCartItems()"
-             class="btn-remove mr-4 ">{{"shopcart.Empty cart"| translate}}</button>
-        </div>
+     
         
         
     </div>
 
+  
+    @if(cartDetails.totalCartPrice>1){
 
+
+      <div class="flex flex-col sm:flex-row sm:items-center sm:justify-end mb-6">
+        <button 
+        (click)="emptyCartItems()"
+         class="btn-remove mr-4 ">{{"shopcart.Empty cart"| translate}}</button>
+    </div>
+      
   @for (prod of cartDetails.products; track prod.product.id) {
 
     <div class=" grid sm:grid-cols-[20%_minmax(0,1fr)] bg-gray-200 hover:bg-gray-300 my-2 rounded-lg">
@@ -51,12 +56,24 @@
 
   }
 
+   
+
 
   <div class="flex  justify-center items-center sm:justify-start ">
     <button class="btn-main mt-6  mr-4 " [routerLink]="['/checkout' , cartDetails._id]">{{"shopcart.Checkout"|translate}}</button>
 
   </div>
+    }
 
+
+  @if (cartDetails.totalCartPrice===0) {
+
+    <div class="flex flex-col items center justify-center">
+      <h3 class="capitalize text-center text-3xl text-green-600 mt-5">Your cart is empty</h3>
+      <img src="./images/empty_cart.svg" class="object-contain w-full h-[50vh] mt-4 " alt="">
+  </div>
+
+  }
  
    
 

@@ -9,57 +9,68 @@
              
             </div>
 
+            @if(wishListDetails !==null){
+                @for (prod of wishListDetails; track prod.id) {
 
-      
-         @for (prod of wishListDetails; track prod.id) {
-
-            <div class=" grid sm:grid-cols-[20%_minmax(0,1fr)] bg-gray-200 hover:bg-gray-300 my-2 rounded-lg">
-
-                <div class="p-3 flex justify-center items-center">
-                    <img [src]="prod.imageCover" class="w-[100px] h-[100px]  rounded-xl" [alt]="prod.category.name">
-                </div>
-
-                <div class="flex flex-col items-center justify-center sm:flex-row sm:justify-between sm:items-center sm:w-[90%]">
                    
-                    <div class="flex flex-col justify-center items-center  mb-4 ">
-                        <h3 class="my-2 text-center sm:text-start text-xl font-[600] sm:self-start">{{prod.title}}</h3>
-                        <h5 class="my-2 text-center text-green-600 sm:self-start"> <span class="text-yellow-500">{{prod.price | currency : 'EGP'}}</span></h5>
-                        
-                        
-                    </div>
 
-                    <div class="flex flex-row  justify-center items-center gap-2  my-4">
-                      
-                       <button 
-                       (click)="removeWishlistItem(prod._id)"
-                       class="bg-red-400 px-1 rounded-lg text-red-950 hover:bg-red-600  border-red-600 border-[2px] hover:text-white">
-                        remove from wishlist
-                        @if (isLoading) {
-                            <span><i class="fas fa-spin fa-spinner"></i></span>
-                        }
-                    </button>
-
-
-                       <button  (click)="addToCart(prod.id)" class="bg-[#24B425] px-1 rounded-lg hover:bg-green-600  border-green-500 border-[2px] hover:text-white">
-                         add to cart
-                         @if (isLoading) {
-      
-                            <span><i class="fas fa-spin fa-spinner"></i></span>
-                          }
-                        </button>
-                    </div>
-    
-                </div>
-
-            </div>
-
-          
-
-
-
-
+                    <div class=" grid sm:grid-cols-[20%_minmax(0,1fr)] bg-gray-200 hover:bg-gray-300 my-2 rounded-lg">
+        
+                        <div class="p-3 flex justify-center items-center">
+                            <img [src]="prod.imageCover" class="w-[100px] h-[100px]  rounded-xl" [alt]="prod.category.name">
+                        </div>
+        
+                        <div class="flex flex-col items-center justify-center sm:flex-row sm:justify-between sm:items-center sm:w-[90%]">
+                           
+                            <div class="flex flex-col justify-center items-center  mb-4 ">
+                                <h3 class="my-2 text-center sm:text-start text-xl font-[600] sm:self-start">{{prod.title}}</h3>
+                                <h5 class="my-2 text-center text-green-600 sm:self-start"> <span class="text-yellow-500">{{prod.price | currency : 'EGP'}}</span></h5>
+                                
+                                
+                            </div>
+        
+                            <div class="flex flex-row  justify-center items-center gap-2  my-4">
+                              
+                               <button 
+                               (click)="removeWishlistItem(prod._id)"
+                               class="bg-red-400 px-1 rounded-lg text-red-950 hover:bg-red-600  border-red-600 border-[2px] hover:text-white">
+                                remove from wishlist
+                                @if (isLoading) {
+                                    <span><i class="fas fa-spin fa-spinner"></i></span>
+                                }
+                            </button>
+        
+        
+                               <button  (click)="addToCart(prod.id)" class="bg-[#24B425] px-1 rounded-lg hover:bg-green-600  border-green-500 border-[2px] hover:text-white">
+                                 add to cart
+                                 @if (isLoading) {
+              
+                                    <span><i class="fas fa-spin fa-spinner"></i></span>
+                                  }
+                                </button>
+                            </div>
             
-         }
+                        </div>
+        
+                    </div>
+        
+                  
+        
+        
+        
+        
+                    
+                 }
+
+            }  @if (wishListDetails.length==0)  {
+
+                <div class="flex flex-col items center justify-center">
+                    <h3 class="capitalize text-center text-3xl text-green-600 mt-5">Your wishlist is empty</h3>
+                    <img src="./images/wishlist.svg" class="object-contain w-full h-[50vh] mt-4 " alt="">
+                </div>
+            }
+      
+       
       
       
           
